@@ -1,1 +1,8 @@
 /.gradle/
+/build/
+/out/
+/run/
+*.iml
+*.ipr
+*.iws
+Rebuild Workspace.bat

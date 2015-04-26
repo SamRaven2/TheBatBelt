@@ -2,15 +2,11 @@ package com.bats.batbelt.item;
 
 import com.bats.batbelt.creativetab.CreativeTabBatBelt;
 import com.bats.batbelt.reference.ModRef;
-import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
 
 /**
  * Created by Bats on 4/26/2015.
@@ -18,8 +14,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 public class ItemCobbleGen extends Item
 {
     private String internalName;
-    private ItemStack cobbleStack;
-    private AxisAlignedBB axisAligned;
+    private ItemStack cobbleStack = new ItemStack(Blocks.cobblestone);
 
     public ItemCobbleGen()
     {
@@ -48,6 +43,37 @@ public class ItemCobbleGen extends Item
     @Override
     public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
     {
-        return cobbleStack.tryPlaceItemIntoWorld(player, world, x, y, z, side, hitX, hitY, hitZ);
+        int posX = x;
+        int posY = y;
+        int posZ = z;
+        int playerPosX = (int) Math.floor(player.posX);
+        int playerPosY = (int) Math.floor(player.posY);
+        int playerPosZ = (int) Math.floor(player.posZ);
+
+        cobbleStack.stackSize = 1;
+
+        switch (side)
+        {
+            case 0:
+                --posY;
+                break;
+            case 1:
+                ++posY;
+                break;
+            case 2:
+                --posZ;
+                break;
+            case 3:
+                ++posZ;
+                break;
+            case 4:
+                --posX;
+                break;
+            case 5:
+                ++posX;
+                break;
+        }
+
+        return !(posX == playerPosX && (posY == playerPosY || posY == playerPosY + 1 || posY == playerPosY - 1) && posZ == playerPosZ) && cobbleStack.getItem().onItemUse(cobbleStack, player, world, x, y, z, side, hitX, hitY, hitZ);
     }
 }
