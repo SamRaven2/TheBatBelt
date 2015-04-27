@@ -3,8 +3,6 @@ package com.bats.batbelt.creativetab;
 import com.bats.batbelt.reference.ModRef;
 import com.bats.batbelt.register.ItemRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 
 /**

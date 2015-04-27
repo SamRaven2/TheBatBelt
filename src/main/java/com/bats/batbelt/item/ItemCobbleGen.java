@@ -2,7 +2,7 @@ package com.bats.batbelt.item;
 
 import com.bats.batbelt.creativetab.CreativeTabBatBelt;
 import com.bats.batbelt.reference.ModRef;
-import com.bats.batbelt.utility.ForgeLog;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -22,6 +22,12 @@ public class ItemCobbleGen extends Item
     {
         this.internalName = "itemCobbleGen";
         setCreativeTab(CreativeTabBatBelt.BATBELT_TAB);
+    }
+
+    @Override
+    public void registerIcons(IIconRegister iconRegister)
+    {
+        itemIcon = iconRegister.registerIcon(ModRef.LC_MOD_ID + ":" + internalName);
     }
 
     @Override
@@ -73,12 +79,9 @@ public class ItemCobbleGen extends Item
 
         cobbleStack.stackSize = 1;
 
-        AxisAlignedBB blockBounds = AxisAlignedBB.getBoundingBox(posX,posY,posZ,posX+1,posY+1,posZ+1);
+        AxisAlignedBB blockBounds = AxisAlignedBB.getBoundingBox(posX, posY, posZ, posX + 1, posY + 1, posZ + 1);
         AxisAlignedBB playerBounds = player.boundingBox;
 
-        if(playerBounds.intersectsWith(blockBounds))
-            return false;
-        else
-            return cobbleStack.tryPlaceItemIntoWorld(player,world,x,y,z,side,hitX,hitY,hitZ);
+        return !playerBounds.intersectsWith(blockBounds) && cobbleStack.tryPlaceItemIntoWorld(player, world, x, y, z, side, hitX, hitY, hitZ);
     }
 }

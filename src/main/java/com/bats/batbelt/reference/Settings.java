@@ -15,4 +15,9 @@ public class Settings
     {
         public static boolean itemCobbleGen;
     }
+
+    public static class Blocks
+    {
+        public static boolean blockHydrator;
+    }
 }

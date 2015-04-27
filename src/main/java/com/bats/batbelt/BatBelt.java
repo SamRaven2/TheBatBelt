@@ -3,11 +3,13 @@ package com.bats.batbelt;
 import com.bats.batbelt.handler.ConfigHandler;
 import com.bats.batbelt.handler.FuelHandler;
 import com.bats.batbelt.reference.ModRef;
+import com.bats.batbelt.register.BlockRegister;
 import com.bats.batbelt.register.ItemRegister;
+import com.bats.batbelt.register.RecipeRegister;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -30,11 +32,13 @@ public class BatBelt
         FMLCommonHandler.instance().bus().register(new ConfigHandler());
 
         ItemRegister.init();
+        BlockRegister.init();
     }
 
     @EventHandler
-     public void init(FMLInitializationEvent event)
+    public void init(FMLInitializationEvent event)
     {
+        RecipeRegister.init();
         GameRegistry.registerFuelHandler(new FuelHandler());
     }
 

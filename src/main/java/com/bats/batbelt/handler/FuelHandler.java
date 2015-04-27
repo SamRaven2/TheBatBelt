@@ -15,22 +15,22 @@ public class FuelHandler implements IFuelHandler
     {
         int[] fuelOreIds = OreDictionary.getOreIDs(fuel);
 
-        if(fuelOreIds.length <= 0)
+        if (fuelOreIds.length <= 0)
             return 0;
 
-        if(Settings.CrossMod.fuelCoalDust)
+        if (Settings.CrossMod.fuelCoalDust)
         {
             int coalDustOreID = OreDictionary.getOreID("dustCoal");
             for (int i : fuelOreIds)
-                if(i == coalDustOreID)
+                if (i == coalDustOreID)
                     return 200;
         }
 
-        if(Settings.CrossMod.fuelCharcoalDust)
+        if (Settings.CrossMod.fuelCharcoalDust)
         {
             int charcoalDustOreID = OreDictionary.getOreID("dustCharcoal");
             for (int i : fuelOreIds)
-                if(i == charcoalDustOreID)
+                if (i == charcoalDustOreID)
                     return 200;
         }
 
