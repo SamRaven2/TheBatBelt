@@ -3,6 +3,8 @@ package com.bats.batbelt.block;
 import com.bats.batbelt.creativetab.CreativeTabBatBelt;
 import com.bats.batbelt.reference.ModRef;
 import com.bats.batbelt.utility.CallerProvider;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFarmland;
 import net.minecraft.block.material.Material;
@@ -31,6 +33,7 @@ public class BlockHydrator extends Block
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister)
     {
         blockIcon = iconRegister.registerIcon(ModRef.LC_MOD_ID + ":" + internalName);
