@@ -2,10 +2,12 @@ package com.bats.batbelt.item;
 
 import com.bats.batbelt.creativetab.CreativeTabBatBelt;
 import com.bats.batbelt.reference.ModRef;
+import com.bats.batbelt.utility.ForgeLog;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
 /**
@@ -46,11 +48,6 @@ public class ItemCobbleGen extends Item
         int posX = x;
         int posY = y;
         int posZ = z;
-        int playerPosX = (int) Math.floor(player.posX);
-        int playerPosY = (int) Math.floor(player.posY);
-        int playerPosZ = (int) Math.floor(player.posZ);
-
-        cobbleStack.stackSize = 1;
 
         switch (side)
         {
@@ -74,6 +71,14 @@ public class ItemCobbleGen extends Item
                 break;
         }
 
-        return !(posX == playerPosX && (posY == playerPosY || posY == playerPosY + 1 || posY == playerPosY - 1) && posZ == playerPosZ) && cobbleStack.getItem().onItemUse(cobbleStack, player, world, x, y, z, side, hitX, hitY, hitZ);
+        cobbleStack.stackSize = 1;
+
+        AxisAlignedBB blockBounds = AxisAlignedBB.getBoundingBox(posX,posY,posZ,posX+1,posY+1,posZ+1);
+        AxisAlignedBB playerBounds = player.boundingBox;
+
+        if(playerBounds.intersectsWith(blockBounds))
+            return false;
+        else
+            return cobbleStack.tryPlaceItemIntoWorld(player,world,x,y,z,side,hitX,hitY,hitZ);
     }
 }
