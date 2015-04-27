@@ -31,6 +31,9 @@ archivesBaseName = "BatBelt"
 
 minecraft {
     version = config.mc_version + "-" + config.forge_version
+
+    replaceIn "reference/ModRef.java"
+    replace "@VERSION@", "${config.mod_version}"
 }
 
 processResources
