@@ -14,6 +14,7 @@ public class Settings
     public static class Items
     {
         public static boolean itemCobbleGen;
+        public static boolean itemMiniCoal;
     }
 
     public static class Blocks

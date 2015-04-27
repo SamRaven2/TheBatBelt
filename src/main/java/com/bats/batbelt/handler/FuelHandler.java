@@ -1,8 +1,10 @@
 package com.bats.batbelt.handler;
 
+import com.bats.batbelt.item.ItemMiniCoal;
 import com.bats.batbelt.reference.Settings;
 import cpw.mods.fml.common.IFuelHandler;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraftforge.oredict.OreDictionary;
 
 /**
@@ -13,6 +15,11 @@ public class FuelHandler implements IFuelHandler
     @Override
     public int getBurnTime(ItemStack fuel)
     {
+        if(fuel.getItem() instanceof ItemMiniCoal)
+        {
+            return 200;
+        }
+
         int[] fuelOreIds = OreDictionary.getOreIDs(fuel);
 
         if (fuelOreIds.length <= 0)

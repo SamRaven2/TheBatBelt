@@ -23,5 +23,11 @@ public class RecipeRegister
         {
             GameRegistry.addShapedRecipe(new ItemStack(BlockRegister.blockHydrator), "lwl", "wrw", "lwl", 'l', Blocks.lapis_block, 'w', Items.water_bucket, 'r', Items.redstone);
         }
+
+        if(Settings.Items.itemMiniCoal)
+        {
+            GameRegistry.addShapelessRecipe(new ItemStack(ItemRegister.itemMiniCoal,8), Items.coal);
+            GameRegistry.addShapelessRecipe(new ItemStack(Items.coal), ItemRegister.itemMiniCoal, ItemRegister.itemMiniCoal, ItemRegister.itemMiniCoal, ItemRegister.itemMiniCoal, ItemRegister.itemMiniCoal, ItemRegister.itemMiniCoal, ItemRegister.itemMiniCoal, ItemRegister.itemMiniCoal);
+        }
     }
 }

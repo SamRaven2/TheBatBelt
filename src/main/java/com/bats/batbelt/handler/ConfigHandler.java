@@ -30,6 +30,7 @@ public class ConfigHandler
         Settings.CrossMod.fuelCoalDust = config.getBoolean("fuelCoalDust", Configuration.CATEGORY_GENERAL, true, "Does coal dust function as fuel?");
 
         Settings.Items.itemCobbleGen = config.getBoolean("itemCobbleGen", "Items", true, "Is the handheld cobble gen enabled?");
+        Settings.Items.itemMiniCoal = config.getBoolean("itemMiniCoal", "Items", true, "Is the miniature coal enabled?");
 
         Settings.Blocks.blockHydrator = config.getBoolean("blockHydrator", "Blocks", true, "Is the farm hydrator block enabled?");
 

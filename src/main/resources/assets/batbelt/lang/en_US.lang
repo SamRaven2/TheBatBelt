@@ -1,5 +1,6 @@
 itemGroup.batbelt=The Bat Belt
 
 item.batbelt:itemCobbleGen.name=Handheld Cobble Gen
+item.batbelt:itemMiniCoal.name=Micro Coal
 
 block.batbelt:blockHydrator.name=Farm Hydrator
