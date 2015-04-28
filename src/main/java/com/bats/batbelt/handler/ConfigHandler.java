@@ -30,9 +30,14 @@ public class ConfigHandler
         Settings.CrossMod.fuelCoalDust = config.getBoolean("fuelCoalDust", Configuration.CATEGORY_GENERAL, true, "Does coal dust function as fuel?");
 
         Settings.Items.itemCobbleGen = config.getBoolean("itemCobbleGen", "Items", true, "Is the handheld cobble gen enabled?");
+        Settings.Items.requireEnderPearl = config.getBoolean("requireEnderPearl", "Items", false, "Does the handheld cobble gen require an ender pearl to craft?");
         Settings.Items.itemMiniCoal = config.getBoolean("itemMiniCoal", "Items", true, "Is the miniature coal enabled?");
 
         Settings.Blocks.blockHydrator = config.getBoolean("blockHydrator", "Blocks", true, "Is the farm hydrator block enabled?");
+
+        Settings.Armor.armorEnabled = config.getBoolean("armorEnabled", "Armor", true, "Is diamond block armor enabled?");
+        Settings.Armor.effectOn = config.getBoolean("effectOn", "Armor", true, "Is the armor effect turned on?");
+        Settings.Armor.easyMode = config.getBoolean("easyMode", "Armor", false, "Should the armor effect be on easy mode?");
 
         if (config.hasChanged())
             config.save();

@@ -15,10 +15,18 @@ public class Settings
     {
         public static boolean itemCobbleGen;
         public static boolean itemMiniCoal;
+        public static boolean requireEnderPearl;
     }
 
     public static class Blocks
     {
         public static boolean blockHydrator;
+    }
+
+    public static class Armor
+    {
+        public static boolean effectOn;
+        public static boolean easyMode;
+        public static boolean armorEnabled;
     }
 }

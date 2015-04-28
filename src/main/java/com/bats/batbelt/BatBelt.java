@@ -1,5 +1,7 @@
 package com.bats.batbelt;
 
+import akka.event.EventBus;
+import com.bats.batbelt.event.PlayerDamagedEvent;
 import com.bats.batbelt.handler.ConfigHandler;
 import com.bats.batbelt.handler.FuelHandler;
 import com.bats.batbelt.reference.ModRef;
@@ -14,6 +16,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraftforge.common.MinecraftForge;
 
 /**
  * Created by Bats on 4/25/2015.
@@ -33,6 +36,7 @@ public class BatBelt
 
         ItemRegister.init();
         BlockRegister.init();
+
     }
 
     @EventHandler
@@ -40,6 +44,7 @@ public class BatBelt
     {
         RecipeRegister.init();
         GameRegistry.registerFuelHandler(new FuelHandler());
+        MinecraftForge.EVENT_BUS.register(new PlayerDamagedEvent());
     }
 
     @EventHandler

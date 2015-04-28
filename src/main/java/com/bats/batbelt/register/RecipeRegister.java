@@ -15,8 +15,15 @@ public class RecipeRegister
     {
         if (Settings.Items.itemCobbleGen)
         {
-            GameRegistry.addShapedRecipe(new ItemStack(ItemRegister.itemCobbleGen), "lpw", "bsb", "isi", 'l', Items.lava_bucket, 'p', Items.iron_pickaxe, 'w', Items.water_bucket, 'b', Blocks.iron_block, 's', Items.stick, 'i', Items.iron_ingot);
-            GameRegistry.addShapedRecipe(new ItemStack(ItemRegister.itemCobbleGen), "wpl", "bsb", "isi", 'l', Items.lava_bucket, 'p', Items.iron_pickaxe, 'w', Items.water_bucket, 'b', Blocks.iron_block, 's', Items.stick, 'i', Items.iron_ingot);
+            if (Settings.Items.requireEnderPearl)
+            {
+                GameRegistry.addShapedRecipe(new ItemStack(ItemRegister.itemCobbleGen), "lpw", "bsb", "iei", 'l', Items.lava_bucket, 'p', Items.iron_pickaxe, 'w', Items.water_bucket, 'b', Blocks.iron_block, 's', Items.stick, 'i', Items.iron_ingot, 'e', Items.ender_pearl);
+                GameRegistry.addShapedRecipe(new ItemStack(ItemRegister.itemCobbleGen), "wpl", "bsb", "iei", 'l', Items.lava_bucket, 'p', Items.iron_pickaxe, 'w', Items.water_bucket, 'b', Blocks.iron_block, 's', Items.stick, 'i', Items.iron_ingot, 'e', Items.ender_pearl);
+            } else
+            {
+                GameRegistry.addShapedRecipe(new ItemStack(ItemRegister.itemCobbleGen), "lpw", "bsb", "isi", 'l', Items.lava_bucket, 'p', Items.iron_pickaxe, 'w', Items.water_bucket, 'b', Blocks.iron_block, 's', Items.stick, 'i', Items.iron_ingot);
+                GameRegistry.addShapedRecipe(new ItemStack(ItemRegister.itemCobbleGen), "wpl", "bsb", "isi", 'l', Items.lava_bucket, 'p', Items.iron_pickaxe, 'w', Items.water_bucket, 'b', Blocks.iron_block, 's', Items.stick, 'i', Items.iron_ingot);
+            }
         }
 
         if (Settings.Blocks.blockHydrator)
@@ -24,10 +31,18 @@ public class RecipeRegister
             GameRegistry.addShapedRecipe(new ItemStack(BlockRegister.blockHydrator), "lwl", "wrw", "lwl", 'l', Blocks.lapis_block, 'w', Items.water_bucket, 'r', Items.redstone);
         }
 
-        if(Settings.Items.itemMiniCoal)
+        if (Settings.Items.itemMiniCoal)
         {
-            GameRegistry.addShapelessRecipe(new ItemStack(ItemRegister.itemMiniCoal,8), Items.coal);
+            GameRegistry.addShapelessRecipe(new ItemStack(ItemRegister.itemMiniCoal, 8), Items.coal);
             GameRegistry.addShapelessRecipe(new ItemStack(Items.coal), ItemRegister.itemMiniCoal, ItemRegister.itemMiniCoal, ItemRegister.itemMiniCoal, ItemRegister.itemMiniCoal, ItemRegister.itemMiniCoal, ItemRegister.itemMiniCoal, ItemRegister.itemMiniCoal, ItemRegister.itemMiniCoal);
+        }
+
+        if(Settings.Armor.armorEnabled)
+        {
+            GameRegistry.addShapedRecipe(new ItemStack(ItemRegister.itemDiamondBlockHelm), "xxx","x x", 'x', Blocks.diamond_block);
+            GameRegistry.addShapedRecipe(new ItemStack(ItemRegister.itemDiamondBlockTunic), "x x","xxx","xxx", 'x', Blocks.diamond_block);
+            GameRegistry.addShapedRecipe(new ItemStack(ItemRegister.itemDiamondBlockLegs), "xxx","x x","x x", 'x', Blocks.diamond_block);
+            GameRegistry.addShapedRecipe(new ItemStack(ItemRegister.itemDiamondBlockBoots), "x x","x x", 'x', Blocks.diamond_block);
         }
     }
 }
