@@ -1,11 +1,6 @@
 itemGroup.batbelt=The Bat Belt
 
-item.batbelt:itemCobbleGen.name=Handheld Cobble Gen
+item.batbelt:itemCobbleGen.name=Cobble Wand
 item.batbelt:itemMiniCoal.name=Micro Coal
-
-item.batbelt:itemDiamondBlockHelm.name=Diamond Block Hat
-item.batbelt:itemDiamondBlockTunic.name=Diamond Block Jacket
-item.batbelt:itemDiamondBlockLegs.name=Diamond Block Pants
-item.batbelt:itemDiamondBlockBoots.name=Diamond Block Shoes
 
 block.batbelt:blockHydrator.name=Farm Hydrator

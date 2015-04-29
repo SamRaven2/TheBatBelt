@@ -1,7 +1,5 @@
 package com.bats.batbelt;
 
-import akka.event.EventBus;
-import com.bats.batbelt.event.PlayerDamagedEvent;
 import com.bats.batbelt.handler.ConfigHandler;
 import com.bats.batbelt.handler.FuelHandler;
 import com.bats.batbelt.reference.ModRef;
@@ -44,7 +42,6 @@ public class BatBelt
     {
         RecipeRegister.init();
         GameRegistry.registerFuelHandler(new FuelHandler());
-        MinecraftForge.EVENT_BUS.register(new PlayerDamagedEvent());
     }
 
     @EventHandler

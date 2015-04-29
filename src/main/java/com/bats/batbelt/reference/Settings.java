@@ -22,11 +22,4 @@ public class Settings
     {
         public static boolean blockHydrator;
     }
-
-    public static class Armor
-    {
-        public static boolean effectOn;
-        public static boolean easyMode;
-        public static boolean armorEnabled;
-    }
 }

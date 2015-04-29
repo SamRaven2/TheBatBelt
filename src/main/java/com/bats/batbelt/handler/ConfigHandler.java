@@ -35,10 +35,6 @@ public class ConfigHandler
 
         Settings.Blocks.blockHydrator = config.getBoolean("blockHydrator", "Blocks", true, "Is the farm hydrator block enabled?");
 
-        Settings.Armor.armorEnabled = config.getBoolean("armorEnabled", "Armor", true, "Is diamond block armor enabled?");
-        Settings.Armor.effectOn = config.getBoolean("effectOn", "Armor", true, "Is the armor effect turned on?");
-        Settings.Armor.easyMode = config.getBoolean("easyMode", "Armor", false, "Should the armor effect be on easy mode?");
-
         if (config.hasChanged())
             config.save();
     }

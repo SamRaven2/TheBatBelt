@@ -2,11 +2,14 @@ package com.bats.batbelt.item;
 
 import com.bats.batbelt.creativetab.CreativeTabBatBelt;
 import com.bats.batbelt.reference.ModRef;
+import com.bats.batbelt.reference.Settings;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
@@ -27,10 +30,22 @@ public class ItemCobbleGen extends Item
     }
 
     @Override
+    public float getDigSpeed(ItemStack itemstack, Block block, int metadata)
+    {
+        if(block == Blocks.cobblestone)
+            return 75.0F;
+        else
+            return 0.0F;
+    }
+
+    @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister)
     {
-        itemIcon = iconRegister.registerIcon(ModRef.LC_MOD_ID + ":" + internalName);
+        if(Settings.Items.requireEnderPearl)
+            itemIcon = iconRegister.registerIcon(ModRef.LC_MOD_ID + ":" + internalName + "_pearl");
+        else
+            itemIcon = iconRegister.registerIcon(ModRef.LC_MOD_ID + ":" + internalName);
     }
 
     @Override

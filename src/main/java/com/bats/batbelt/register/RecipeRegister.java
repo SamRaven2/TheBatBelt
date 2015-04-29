@@ -36,13 +36,5 @@ public class RecipeRegister
             GameRegistry.addShapelessRecipe(new ItemStack(ItemRegister.itemMiniCoal, 8), Items.coal);
             GameRegistry.addShapelessRecipe(new ItemStack(Items.coal), ItemRegister.itemMiniCoal, ItemRegister.itemMiniCoal, ItemRegister.itemMiniCoal, ItemRegister.itemMiniCoal, ItemRegister.itemMiniCoal, ItemRegister.itemMiniCoal, ItemRegister.itemMiniCoal, ItemRegister.itemMiniCoal);
         }
-
-        if(Settings.Armor.armorEnabled)
-        {
-            GameRegistry.addShapedRecipe(new ItemStack(ItemRegister.itemDiamondBlockHelm), "xxx","x x", 'x', Blocks.diamond_block);
-            GameRegistry.addShapedRecipe(new ItemStack(ItemRegister.itemDiamondBlockTunic), "x x","xxx","xxx", 'x', Blocks.diamond_block);
-            GameRegistry.addShapedRecipe(new ItemStack(ItemRegister.itemDiamondBlockLegs), "xxx","x x","x x", 'x', Blocks.diamond_block);
-            GameRegistry.addShapedRecipe(new ItemStack(ItemRegister.itemDiamondBlockBoots), "x x","x x", 'x', Blocks.diamond_block);
-        }
     }
 }
