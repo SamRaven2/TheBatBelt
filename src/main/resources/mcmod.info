@@ -1,6 +1,6 @@
 [
   {
-    "modid": "${modid}",
+    "modid": "BatBelt",
     "name": "The Bat Belt",
     "description": "Bats' Utility Mod",
     "version": "${version}",
