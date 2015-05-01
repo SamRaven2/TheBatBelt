@@ -26,14 +26,15 @@ configFile.withReader {
 }
 
 version = config.mod_version
-group = "com.bats.batbelt" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "BatBelt"
+group = "com.bats." + config.package_name
+archivesBaseName = config.mod_id
 
 minecraft {
     version = config.mc_version + "-" + config.forge_version
 
     replaceIn "reference/ModRef.java"
     replace "@VERSION@", "${config.mod_version}"
+    replace "@MODID@", "${config.mod_id}"
 }
 
 processResources
@@ -44,7 +45,7 @@ processResources
             from(sourceSets.main.resources.srcDirs) {
                 include 'mcmod.info'
 
-                expand 'version': project.version, 'mcversion': project.minecraft.version
+                expand 'version': project.version, 'mcversion': project.minecraft.version, 'modid': project.archivesBaseName
             }
 
             from(sourceSets.main.resources.srcDirs) {
