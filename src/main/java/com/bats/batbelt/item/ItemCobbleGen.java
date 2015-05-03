@@ -20,12 +20,14 @@ import net.minecraft.world.World;
  */
 public class ItemCobbleGen extends Item
 {
+    //Base Item
     private String internalName;
     private ItemStack cobbleStack = new ItemStack(Blocks.cobblestone);
 
     public ItemCobbleGen()
     {
         this.internalName = "itemCobbleGen";
+        setMaxStackSize(1);
         setCreativeTab(CreativeTabBatBelt.BATBELT_TAB);
     }
 
@@ -49,12 +51,6 @@ public class ItemCobbleGen extends Item
     }
 
     @Override
-    public int getItemStackLimit(ItemStack stack)
-    {
-        return 1;
-    }
-
-    @Override
     public String getUnlocalizedName()
     {
         return "item." + ModRef.LC_MOD_ID + ":" + this.internalName;
@@ -65,6 +61,8 @@ public class ItemCobbleGen extends Item
     {
         return getUnlocalizedName();
     }
+
+    //Item Specific Methods
 
     @Override
     public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)

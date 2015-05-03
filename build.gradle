@@ -26,7 +26,7 @@ configFile.withReader {
 }
 
 version = config.mod_version
-group = "com.bats.batbelt" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+group = "com.bats.batbelt"
 archivesBaseName = "BatBelt"
 
 minecraft {

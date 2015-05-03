@@ -20,7 +20,8 @@ import net.minecraftforge.common.MinecraftForge;
  * Created by Bats on 4/25/2015.
  */
 
-@Mod(modid = ModRef.MOD_ID, name = ModRef.MOD_NAME, version = ModRef.MOD_VERSION, dependencies = "required-after:Forge@[10.13.3.1395]")
+@Mod(modid = ModRef.MOD_ID, name = ModRef.MOD_NAME, version = ModRef.MOD_VERSION,
+        dependencies = "required-after:Forge")
 public class BatBelt
 {
     @Instance(ModRef.MOD_ID)
